@@ -8,15 +8,24 @@
 import SwiftUI
 
 struct ContentView: View {
+    let movie: [Movie] = Movie.mockMovies
+//        let movie: Movie
     var body: some View {
-        VStack {
-            Image(systemName: "globe")
-                .imageScale(.large)
-                .foregroundColor(.accentColor)
-            Text("Hello, world!")
+        NavigationView {
+            VStack {
+            List(movie) { movie in
+//                ForEach(Movie) {movies in
+                    NavigationLink(destination: DetailView()) {
+                        /*@START_MENU_TOKEN@*/Text(movie.title)/*@END_MENU_TOKEN@*/
+                        Text(movie.description)
+                    }
+//                }
+            }
         }
+        .navigationTitle("Movies")
         .padding()
     }
+}
 }
 
 struct ContentView_Previews: PreviewProvider {
