@@ -8,8 +8,13 @@
 import SwiftUI
 
 struct DetailView: View {
+    let movie: [Movie] = Movie.mockMovies
     var body: some View {
-        Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
+        VStack {
+            ForEach(movie) { movie in
+                /*@START_MENU_TOKEN@*/Text(movie.title)/*@END_MENU_TOKEN@*/
+            }
+        }
     }
 }
 

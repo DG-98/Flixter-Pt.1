@@ -13,17 +13,21 @@ struct ContentView: View {
     var body: some View {
         NavigationView {
             VStack {
-            List(movie) { movie in
-//                ForEach(Movie) {movies in
+                List{
+                ForEach(movie) {movie in
                     NavigationLink(destination: DetailView()) {
                         /*@START_MENU_TOKEN@*/Text(movie.title)/*@END_MENU_TOKEN@*/
-                        Text(movie.description)
+                            .font(.headline)
+                        Text(movie.description.prefix(80) + "...")
+                            .font(.subheadline)
+//                        Text(movie.posterImage)
                     }
-//                }
+                }
+                            }
             }
-        }
-        .navigationTitle("Movies")
-        .padding()
+            .navigationTitle("Movies")
+            .navigationBarTitleDisplayMode(.inline)
+            .padding()
     }
 }
 }
