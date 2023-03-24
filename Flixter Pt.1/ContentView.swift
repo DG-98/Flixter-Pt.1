@@ -9,21 +9,33 @@ import SwiftUI
 
 struct ContentView: View {
     let movie: [Movie] = Movie.mockMovies
-//        let movie: Movie
     var body: some View {
         NavigationView {
-            VStack {
+//            VStack {
                 List{
                 ForEach(movie) {movie in
-                    NavigationLink(destination: DetailView()) {
-                        /*@START_MENU_TOKEN@*/Text(movie.title)/*@END_MENU_TOKEN@*/
-                            .font(.headline)
-                        Text(movie.description.prefix(80) + "...")
-                            .font(.subheadline)
-//                        Text(movie.posterImage)
-                    }
-                }
+                    NavigationLink(destination: DetailView(movies: movie)) {
+                        HStack {
+                            AsyncImage(url: movie.posterImage) {image in
+                                image
+                                    .resizable()
+                            } placeholder: {
+                                Color.gray
                             }
+                                .frame(width: 100, height: 150, alignment: .trailing)
+                            VStack {
+                                /*@START_MENU_TOKEN@*/Text(movie.title)/*@END_MENU_TOKEN@*/
+                                    .font(.headline)
+                                    .frame(alignment: .leading)
+                                Text(movie.description.prefix(80) + "...")
+                                    .font(.subheadline)
+                                    .frame(alignment: .trailing)
+
+                            }
+                    }
+                        }
+//                    }
+                }
             }
             .navigationTitle("Movies")
             .navigationBarTitleDisplayMode(.inline)
