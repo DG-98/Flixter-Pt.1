@@ -26,8 +26,10 @@ The following **optional** features are implemented:
 
 Here's a walkthrough of implemented user stories:
 
-<img src=  />
-
+<img src=https://user-images.githubusercontent.com/85405879/227679971-b58bd463-160a-46c4-a46e-e8e469fdcfde.gif
+ />
+<img src=https://user-images.githubusercontent.com/85405879/227680282-ff1a66d8-da8f-4143-b1d1-c1f6fa139e65.gif
+ />
 
 GIF created with Kapture
 
