@@ -15,24 +15,24 @@ struct DetailView: View {
             AsyncImage(url: movies.backdropImage){image in
                 image
                     .resizable()
-                    .frame(width: geometry.size.width, height: geometry.size.width * 0.58)
-                //                    .scaledToFill()
-                //                    .aspectRatio(contentMode: .fill)
+                    .scaledToFit()
+                    .frame(width: geometry.size.width)
             } placeholder: {
                 Color.gray
             }
-            //                .frame(width: 100, height: 150)
             Text(movies.title)
-            HStack {
+            HStack(spacing: 100) {
                 VStack {
-                    Text("\(movies.voteAverage) Vote Average")
-                    Text("\(movies.voteCount) Votes")
+                    Text(String("\(movies.voteAverage) Vote Average"))
+                    Text(String("\(movies.voteCount) Votes"))
                 }
-                Text("\(movies.popularity) Popularity")
+                Text(String("\(movies.popularity) Popularity"))
             }
+            .padding()
             Text(movies.description)
+            }
+            
         }
-    }
     }
 }
 

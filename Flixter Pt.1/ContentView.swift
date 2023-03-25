@@ -11,8 +11,7 @@ struct ContentView: View {
     let movie: [Movie] = Movie.mockMovies
     var body: some View {
         NavigationView {
-//            VStack {
-                List{
+            List{
                 ForEach(movie) {movie in
                     NavigationLink(destination: DetailView(movies: movie)) {
                         HStack {
@@ -31,10 +30,9 @@ struct ContentView: View {
                                     .font(.subheadline)
                                     .frame(alignment: .trailing)
 
+                                }
                             }
-                    }
                         }
-//                    }
                 }
             }
             .navigationTitle("Movies")
